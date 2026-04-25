@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <h1>Pengajuan Berhasil Disimpan</h1>
-        <p class="muted">Silakan simpan kode peminjaman berikut untuk proses monitoring dan pengembalian.</p>
+        <p class="muted">Pengajuan Anda menunggu verifikasi admin. Silakan simpan kode peminjaman berikut untuk monitoring status.</p>
 
         <div class="metric" style="margin-bottom: 1rem;">
             <div class="label">Kode Peminjaman</div>
@@ -14,10 +14,11 @@
             <div>
                 <p><strong>Nama:</strong> {{ $loan->borrower_name }}</p>
                 <p><strong>NIM:</strong> {{ $loan->borrower_id_number }}</p>
+                <p><strong>Status:</strong> <span class="badge {{ $loan->status }}">{{ strtoupper($loan->status) }}</span></p>
             </div>
             <div>
-                <p><strong>Waktu pinjam:</strong> {{ $loan->borrowed_at->format('d M Y H:i') }}</p>
-                <p><strong>Batas kembali:</strong> {{ $loan->due_at->format('d M Y H:i') }}</p>
+                <p><strong>Waktu pengajuan:</strong> {{ $loan->borrowed_at->format('d M Y H:i') }}</p>
+                <p><strong>Estimasi batas kembali:</strong> {{ $loan->due_at->format('d M Y H:i') }} <span class="muted">(aktif setelah di-ACC admin)</span></p>
             </div>
         </div>
 

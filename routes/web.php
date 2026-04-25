@@ -26,6 +26,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::get('/', DashboardController::class)->name('dashboard');
     Route::get('/loans', [LoanController::class, 'index'])->name('loans.index');
     Route::get('/loans/{loan}', [LoanController::class, 'show'])->name('loans.show');
+    Route::patch('/loans/{loan}/approve', [LoanController::class, 'approve'])->name('loans.approve');
+    Route::patch('/loans/{loan}/reject', [LoanController::class, 'reject'])->name('loans.reject');
     Route::patch('/loans/{loan}/returned', [LoanController::class, 'markReturned'])->name('loans.returned');
     Route::resource('items', ItemController::class)->except(['show']);
 });

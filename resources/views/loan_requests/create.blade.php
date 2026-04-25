@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <h1>Form Peminjaman Barang LAB</h1>
-        <p class="muted">Mahasiswa dapat meminjam barang tanpa login. Batas pengembalian otomatis 3 hari dari waktu peminjaman.</p>
+        <p class="muted">Mahasiswa dapat mengajukan peminjaman tanpa login. Pengajuan akan diverifikasi admin (ACC / ditolak).</p>
 
         @if ($items->isEmpty())
             <div class="errors">

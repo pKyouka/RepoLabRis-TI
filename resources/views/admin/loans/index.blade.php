@@ -18,9 +18,11 @@
                 <label for="status">Status</label>
                 <select id="status" name="status">
                     <option value="">Semua status</option>
+                    <option value="pending" @selected($status === 'pending')>Menunggu Persetujuan</option>
                     <option value="borrowed" @selected($status === 'borrowed')>Borrowed</option>
                     <option value="overdue" @selected($status === 'overdue')>Overdue</option>
                     <option value="returned" @selected($status === 'returned')>Returned</option>
+                    <option value="rejected" @selected($status === 'rejected')>Rejected</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Filter</button>

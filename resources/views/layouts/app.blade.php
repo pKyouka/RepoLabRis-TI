@@ -180,6 +180,12 @@
             border-color: #fcd34d;
         }
 
+        .badge.pending {
+            background: #eff6ff;
+            color: #1d4ed8;
+            border-color: #93c5fd;
+        }
+
         .badge.overdue {
             background: #fef2f2;
             color: #991b1b;
@@ -190,6 +196,12 @@
             background: #ecfdf3;
             color: #166534;
             border-color: #86efac;
+        }
+
+        .badge.rejected {
+            background: #fff1f2;
+            color: #be123c;
+            border-color: #fda4af;
         }
 
         .row {

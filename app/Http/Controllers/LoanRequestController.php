@@ -43,7 +43,6 @@ class LoanRequestController extends Controller
 
             $items = Item::query()
                 ->whereIn('id', $itemRequests->keys())
-                ->lockForUpdate()
                 ->get()
                 ->keyBy('id');
 
@@ -71,7 +70,7 @@ class LoanRequestController extends Controller
                 'purpose' => $validated['purpose'] ?? null,
                 'borrowed_at' => $borrowedAt,
                 'due_at' => $borrowedAt->copy()->addDays(3),
-                'status' => 'borrowed',
+                'status' => 'pending',
             ]);
 
             foreach ($itemRequests as $itemId => $quantity) {
@@ -80,9 +79,6 @@ class LoanRequestController extends Controller
                     'item_id' => $itemId,
                     'quantity' => $quantity,
                 ]);
-
-                $item = $items->get($itemId);
-                $item->decrement('available_stock', $quantity);
             }
 
             return $loan;

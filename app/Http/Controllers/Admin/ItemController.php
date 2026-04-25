@@ -12,7 +12,7 @@ class ItemController extends Controller
 {
     public function index(): View
     {
-        $items = Item::query()->latest()->paginate(15);
+        $items = Item::query()->latest()->get();
 
         return view('admin.items.index', compact('items'));
     }
